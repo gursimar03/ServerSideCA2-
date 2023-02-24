@@ -1,3 +1,14 @@
+<?php
+require_once('database.php');
+
+// Get products
+$queryUsers = 'SELECT * FROM Users';
+$statement = $db->prepare($queryUsers);
+$statement->execute();
+$Users = $statement->fetchAll();
+$statement->closeCursor();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
