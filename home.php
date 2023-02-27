@@ -32,9 +32,9 @@ if (isset($_SESSION['email']) && isset($_SESSION['username'])) {
 
 }else{
 
-     header("Location: index.php");
+     // header("Location: index.php");
 
-     exit();
+     // exit();
 
 }
 

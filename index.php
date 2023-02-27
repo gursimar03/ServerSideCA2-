@@ -49,11 +49,9 @@ $statement->closeCursor();
   </div>
   <div class="col-md-4">.col-md-4</div>
 </div>
-<button type="button" class="btn btn-primary">Login</button>
-<?php
- echo '<a href="login.php">
-      <button type="button" class="btn btn-primary"> Login </button>
-  </a>';
-?>
+
+<form action="login.php">
+  <button type="submit" value="Go to Google" />
+</form>
 </body>
 </html>
