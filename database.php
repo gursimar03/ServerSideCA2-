@@ -1,5 +1,5 @@
 <?php
-    $dsn = 'mysql:host=localhost;dbname=task_management';
+    $dsn = 'mysql:host=localhost;dbname=motogp';
     $username = 'root';
     $password = '';
 
