@@ -1,12 +1,18 @@
 <?php
 require_once('database.php');
+session_start();
+
 
 // Get products
-$queryUsers = 'SELECT * FROM Users';
+$queryUsers = 'SELECT * FROM users';
 $statement = $db->prepare($queryUsers);
 $statement->execute();
 $Users = $statement->fetchAll();
 $statement->closeCursor();
+
+
+
+
 ?>
 
 <!DOCTYPE html>

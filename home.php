@@ -1,10 +1,10 @@
+
 <?php 
 
 session_start();
+?>
 
-if (isset($_SESSION['email']) && isset($_SESSION['username'])) {
 
- ?>
 
 <!DOCTYPE html>
 
@@ -20,7 +20,7 @@ if (isset($_SESSION['email']) && isset($_SESSION['username'])) {
 
 <body>
 
-     <h1>Hello, <?php echo $_SESSION['username']; ?></h1>
+     <h1>Hello, <?php echo $_SESSION['name']; ?></h1>
 
      <a href="logout.php">Logout</a>
 
@@ -28,14 +28,4 @@ if (isset($_SESSION['email']) && isset($_SESSION['username'])) {
 
 </html>
 
-<?php 
 
-}else{
-
-     // header("Location: index.php");
-
-     // exit();
-
-}
-
- ?>
