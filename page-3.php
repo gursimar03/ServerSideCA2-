@@ -30,7 +30,7 @@
                 <a class="nav-link" aria-current="page" href="page-1.html">Page 1</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="page-2.html">Page 2</a>
+                <a class="nav-link" aria-current="page" href="page-3.html">Page 2</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" aria-current="page" href="page-3.html">Page 3</a>
@@ -43,7 +43,7 @@
 
 <main class="container">
   <div class="starter-template text-center">
-    <h1>Bootstrap starter template</h1>
+    <h1>Page 3</h1>
     <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
   </div>
 
