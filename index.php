@@ -1,3 +1,10 @@
+<?php
+
+session_start();
+
+?>
+
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -33,13 +40,23 @@
                 <a class="nav-link" aria-current="page" href="page-2.html">Page 2</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="page-3.html">Page 3</a>
+                <?php 
+                if (isset($_SESSION['email'])) {
+                  echo '<a class="nav-link" aria-current="page" href="logout.php">Logout</a>';
+                } else {
+                  echo '<a class="nav-link" aria-current="page" href="login.php">Login</a>';
+                }
+                ?>
               </li>
             </ul>
           </span>
         </div>
       </div>
     </nav>
+
+    
+
+
 
 <main class="container">
   <div class="starter-template text-center">

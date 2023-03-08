@@ -1,7 +1,7 @@
 <?php 
 session_start(); 
 include "database.php";
-$conn = mysqli_connect("localhost","root","","task_management");
+$conn = mysqli_connect("localhost","root","","motogp");
 
 if (isset($_POST['email']) && isset($_POST['password'])) {
     function validate($data){
@@ -32,10 +32,9 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
                 $_SESSION['email'] = $row['email'];
                 $_SESSION['name'] = $row['name'];
                 $_SESSION['id'] = $row['id'];
-                
+            
 
-
-                header("Location: home.php");
+                header("Location: index.php");
                 exit();
             } else {
                 header("Location: login.php?error=Incorrect username or password");
