@@ -2,6 +2,17 @@
 
 session_start();
 
+
+include "database.php";
+
+$conn = mysqli_connect("localhost","root","","motogp");
+
+//get riders table
+$sql = "SELECT * FROM riders";
+$result = mysqli_query($conn, $sql);
+$riders = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+
 ?>
 
 
@@ -48,6 +59,11 @@ session_start();
                 }
                 ?>
               </li>
+              <?php if ( !isset($_SESSION['email'])): ?>
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="register.php">Register</a>
+                </li>
+              <?php endif ?>
             </ul>
           </span>
         </div>
@@ -59,10 +75,28 @@ session_start();
 
 
 <main class="container">
-  <div class="starter-template text-center">
-    <h1>Bootstrap starter template</h1>
-    <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
-  </div>
+ 
+<?php if (isset($_SESSION['email'])): ?>
+  <h1>Welcome <?php echo $_SESSION['name']; ?></h1>
+<?php endif ?>
+
+<div class="row">
+  <?php foreach($riders as $rider): ?>
+    <div class="col-md-4 mb-3">
+      <div class="card h-100">
+        <img src="<?= $rider['profile_img'] ?>" style="width:50%; height:50%;" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><?= $rider['name'] ?></h5>
+          <p class="card-text"><?= $rider['nationality'] ?></p>
+          <a href="rider.php?id=<?= $rider['race_id'] ?>" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+  <?php endforeach; ?>
+</div>
+
+
+ 
 
 </main><!-- /.container -->
     <script src="js/bootstrap.bundle.min.js"></script>
