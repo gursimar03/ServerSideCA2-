@@ -57,4 +57,4 @@ INSERT INTO riders (rider_id, name, born, nationality, profile_img) VALUES ('25'
 
 insert into rider_team (rider_id,team_id) VALUES (5,1),(10,2),(12,3),(20,4),(21,4),(23,5),(25,6);
 
-SELECT name ,team_name FROM `riders` , rider_team , teams where rider_team.rider_id = riders.rider_id AND rider_team.team_id = teams.team_id;
+SELECT riders.rider_id,name ,team_name , profile_img FROM `riders` , rider_team , teams where rider_team.rider_id = riders.rider_id AND rider_team.team_id = teams.team_id;

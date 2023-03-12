@@ -8,7 +8,7 @@ include "database.php";
 $conn = mysqli_connect("localhost","root","","motogp");
 
 //get riders table
-$sql = "SELECT * FROM riders";
+$sql = "SELECT riders.rider_id,name ,team_name , profile_img FROM `riders` , rider_team , teams where rider_team.rider_id = riders.rider_id AND rider_team.team_id = teams.team_id;";
 $result = mysqli_query($conn, $sql);
 $riders = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
@@ -69,7 +69,7 @@ $riders = mysqli_fetch_all($result, MYSQLI_ASSOC);
           <a class="nav-link" href="#">Services</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Contact</a>
+          <a class="nav-link" href="contact.php">Contact</a>
         </li>
       </ul>
     </div>
@@ -84,15 +84,14 @@ echo '<div class="row">';
 
 foreach ($riders as $rider) {
     echo '<div class="col-md-4 mb-3">';
-    echo '<div class="card h-100">';
-    echo '<img src="' . $rider['profile_img'] . '" class="card-img-top" alt="' . $rider['name'] . '">';
-    echo '<div class="card-body">';
-    echo '<h5 class="card-title">' . $rider['name'] . '</h5>';
-    echo '<p class="card-text">' . $rider['team'] . '</p>';
-    echo '<p class="card-text">' . $rider['nationality'] . '</p>';
-    echo '<p class="card-text">' . $rider['born'] . '</p>';
-    echo '</div>';
-    echo '</div>';
+    echo '  <div class="card h-100">';
+    echo '    <img src="' . $rider['profile_img'] . '" class="card-img-top" alt="' . $rider['name'] . '">';
+    echo  '   <div class="card-body">';
+    echo        '<h5 class="card-title">' . $rider['name'] . '</h5>';
+    echo        '<p class="card-text">' . $rider['team_name'] . '</p>';
+    echo        '<p class="card-text">' . $rider['rider_id'] . '</p>';
+    echo      '</div>';
+    echo    '</div>';
     echo '</div>';
 }
 
@@ -100,29 +99,6 @@ echo '</div>';
 echo '</div>';
 ?>
 
-
-<div class="container">
-  <h2>Striped Rows</h2>
-  <p>The .table-striped class adds zebra-stripes to a table:</p>            
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Team</th>
-        <th>No</th>
-      </tr>
-    </thead>
-    <tbody>
-      <?php foreach($riders as $rider): ?>
-      <tr>
-        <td><?php echo $rider['name']; ?></td>
-        <td><?php echo $rider['team']; ?></td>
-        <td><?php echo $rider['race_id']; ?></td>
-      </tr>
-      <?php endforeach; ?>
-    </tbody>
-  </table>
-</div>
 
 
 
