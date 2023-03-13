@@ -76,7 +76,6 @@ $riders = mysqli_fetch_all($result, MYSQLI_ASSOC);
   </div>
 </nav>
 
-
 <?php
 
 echo '<div class="container">';
@@ -84,20 +83,24 @@ echo '<div class="row">';
 
 foreach ($riders as $rider) {
     echo '<div class="col-md-4 mb-3">';
-    echo '  <div class="card h-100">';
-    echo '    <img src="' . $rider['profile_img'] . '" class="card-img-top" alt="' . $rider['name'] . '">';
-    echo  '   <div class="card-body">';
-    echo        '<h5 class="card-title">' . $rider['name'] . '</h5>';
-    echo        '<p class="card-text">' . $rider['team_name'] . '</p>';
-    echo        '<p class="card-text">' . $rider['rider_id'] . '</p>';
-    echo      '</div>';
-    echo    '</div>';
+    echo '  <a href="rider.php?id=' . $rider['rider_id'] . '">';
+    echo '    <div class="card h-100">';
+    echo '      <img src="' . $rider['profile_img'] . '" class="card-img-top" alt="' . $rider['name'] . '">';
+    echo '      <div class="card-body">';
+    echo '        <h5 class="card-title">' . $rider['name'] . '</h5>';
+    echo '        <p class="card-text">' . $rider['team_name'] . '</p>';
+    echo '        <p class="card-text">' . $rider['rider_id'] . '</p>';
+    echo '      </div>';
+    echo '    </div>';
+    echo '  </a>';
     echo '</div>';
 }
 
 echo '</div>';
 echo '</div>';
+
 ?>
+
 
 
 
