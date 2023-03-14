@@ -64,6 +64,22 @@ mysqli_close($conn);
 <head>
     <title>Register</title>
     <link rel="stylesheet" type="text/css" href="login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+      <!-- Font Awesome -->
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    rel="stylesheet"
+  />
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+    rel="stylesheet"  
+  />
+  <!-- MDB -->  
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css"
+    rel="stylesheet"
+  />
 </head>
 
 <body>
@@ -71,29 +87,30 @@ mysqli_close($conn);
         <h2>Register</h2>
     </div>
     <form method="post" action="register.php">
-        <div class="input-group">
-            <label>Username</label>
-            <input type="text" name="username" value="">
-        </div>
-        <div class="input-group">
-            <label>Email</label>
-            <input type="email" name="email" value="">
-        </div>
-        <div class="input-group">
-            <label>Password</label>
-            <input type="password" name="password_1">
-        </div>
-        <div class="input-group">
-            <label>Confirm password</label>
-            <input type="password" name="password_2">
-        </div>
-        <div class="input-group">
-            <button type="submit" class="btn" name="reg_user">Register</button>
-        </div>
-        <p>
-            Already a member? <a href="login.php">Sign in</a>
-        </p>
-    </form>
+    <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input type="text" name="username" id="username" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" name="email" id="email" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label for="password_1" class="form-label">Password</label>
+        <input type="password" name="password_1" id="password_1" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label for="password_2" class="form-label">Confirm password</label>
+        <input type="password" name="password_2" id="password_2" class="form-control" required>
+    </div>
+    <div class="d-grid">
+        <button type="submit" class="btn btn-primary" name="reg_user">Register</button>
+    </div>
+    <p class="mt-3">
+        Already a member? <a href="login.php">Sign in</a>
+    </p>
+</form>
+
 </body>
 </html>
 
