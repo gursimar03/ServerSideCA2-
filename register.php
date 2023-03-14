@@ -86,26 +86,28 @@ mysqli_close($conn);
     <div class="header">
         <h2>Register</h2>
     </div>
-    <form method="post" action="register.php">
+    <form id="registerForm" method="post" action="register.php">
     <div class="mb-3">
         <label for="username" class="form-label">Username</label>
-        <input type="text" name="username" id="username" class="form-control" required>
+        <input type="text" name="username" id="username" class="form-control">
+        <div id="usernameError" class="invalid-feedback"></div>
     </div>
     <div class="mb-3">
         <label for="email" class="form-label">Email</label>
-        <input type="email" name="email" id="email" class="form-control" required>
+        <input type="email" name="email" id="email" class="form-control">
+        <div id="emailError" class="invalid-feedback"></div>
     </div>
     <div class="mb-3">
         <label for="password_1" class="form-label">Password</label>
-        <input type="password" name="password_1" id="password_1" class="form-control" required>
+        <input type="password" name="password_1" id="password_1" class="form-control">
+        <div id="password1Error" class="invalid-feedback"></div>
     </div>
     <div class="mb-3">
         <label for="password_2" class="form-label">Confirm password</label>
-        <input type="password" name="password_2" id="password_2" class="form-control" required>
+        <input type="password" name="password_2" id="password_2" class="form-control">
+        <div id="password2Error" class="invalid-feedback"></div>
     </div>
-    <div class="d-grid">
-        <button type="submit" class="btn btn-primary" name="reg_user">Register</button>
-    </div>
+    <button type="submit" class="btn btn-primary">Register</button>
     <p class="mt-3">
         Already a member? <a href="login.php">Sign in</a>
     </p>
