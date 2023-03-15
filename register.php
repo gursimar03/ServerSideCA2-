@@ -48,7 +48,7 @@ if (isset($_POST['reg_user'])) {
         $password =$password_1; 
         $query = "INSERT INTO users (username, email, password) VALUES ('$username', '$email', '$password')";
         mysqli_query($conn, $query);
-        header('location: login.php');
+        header('location: home.php');
     }
 }
 
@@ -84,9 +84,58 @@ mysqli_close($conn);
 </head>
 
 <body>
-    <div class="header">
+    
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Eighth navbar example">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="home.php">MotoGP</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarsExample07">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          </ul>
+          <span class="d-flex">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item"> 
+                <a class="nav-link" aria-current="page" href="contact.php">Contact</a>
+              </li>
+              <li class="nav-item"> 
+                <a class="nav-link" aria-current="page" href="teams.php">Teams</a>
+              </li>
+              <li class="nav-item"> 
+                <a class="nav-link" aria-current="page" href="races.php">Races</a>
+              </li>
+              <li class="nav-item">
+                <?php 
+                if (isset($_SESSION['email'])) {
+                  echo '<a class="nav-link" aria-current="page" href="logout.php">Logout</a>';
+                } else {
+                  echo '<a class="nav-link" aria-current="page" href="login.php">Login</a>';
+                }
+                ?>
+              </li>
+              <?php if ( !isset($_SESSION['email'])): ?>
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="register.php">Register</a>
+                </li>
+              <?php endif ?>
+              <?php if (isset($_SESSION['role'])) : ?>
+                <?php if ($_SESSION['role'] == 'admin') : ?>
+                  <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="admin.php">Admin</a>
+                  </li>
+                <?php endif ?>
+                <?php endif ?>
+            </ul>
+          </span>
+        </div>
+      </div>
+    </nav>
+
+<div class="header">
         <h2>Register</h2>
     </div>
+    
     <form id="registerForm" method="post" action="register.php">
     <div class="mb-3">
         <label for="username" class="form-label">Username</label>

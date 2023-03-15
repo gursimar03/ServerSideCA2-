@@ -56,6 +56,9 @@ global $conn;
               <li class="nav-item"> 
                 <a class="nav-link" aria-current="page" href="teams.php">Teams</a>
               </li>
+              <li class="nav-item"> 
+                <a class="nav-link" aria-current="page" href="races.php">Races</a>
+              </li>
               <li class="nav-item">
                 <?php 
                 if (isset($_SESSION['email'])) {

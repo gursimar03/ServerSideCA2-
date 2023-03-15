@@ -89,6 +89,9 @@ global $conn;
               <li class="nav-item"> 
                 <a class="nav-link" aria-current="page" href="teams.php">Teams</a>
               </li>
+              <li class="nav-item"> 
+                <a class="nav-link" aria-current="page" href="races.php">Races</a>
+              </li>
               <li class="nav-item">
                 <?php 
                 if (isset($_SESSION['email'])) {
@@ -126,7 +129,7 @@ global $conn;
     $result = $conn->query($sql);
 
     if(isset($_SESSION['id'])){
-        $sql = "SELECT race_results.race_id,result_rank,result_time,race_name,race_date FROM races,race_results WHERE race_results.rider_id = $id ORDER BY race_date DESC ";
+        $sql = "SELECT race_results.race_id,result_rank,result_time,races.race_name,race_date FROM races,race_results WHERE race_results.rider_id = $id ORDER BY race_date DESC ";
 
         $race_result = $conn->query($sql);
     }else {
