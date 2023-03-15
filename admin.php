@@ -4,7 +4,7 @@ session_start();
 
 include "database.php";
 
-$conn = mysqli_connect("localhost","root","","motogp");
+global $conn;
 
 
 ?>
@@ -144,7 +144,6 @@ $conn = mysqli_connect("localhost","root","","motogp");
             $sql = "SELECT * FROM riders , teams , rider_team WHERE riders.rider_id = rider_team.rider_id AND teams.team_id = rider_team.team_id";
             $result = mysqli_query($conn, $sql);
             $riders = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
             $table = '
             <table class="table table-striped">
                 <thead>

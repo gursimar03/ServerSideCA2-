@@ -1,7 +1,7 @@
 <?php 
 session_start(); 
 include "database.php";
-$conn = mysqli_connect("localhost","root","","motogp");
+global $conn;
 
 if (isset($_POST['email']) && isset($_POST['password'])) {
     function validate($data){

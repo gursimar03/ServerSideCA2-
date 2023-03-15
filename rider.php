@@ -5,7 +5,7 @@ session_start();
 
 include "database.php";
 
-$conn = mysqli_connect("localhost","root","","motogp");
+global $conn;
 
 
 ?>
@@ -35,7 +35,7 @@ $conn = mysqli_connect("localhost","root","","motogp");
 <style>
   .container{
     position: absolute;
-    top: 35%;
+    top: 45%;
     left: 20%;
   }
 
@@ -60,7 +60,7 @@ $conn = mysqli_connect("localhost","root","","motogp");
         margin-top: 0px;
         width: 98%;
         left: 20px;
-        height: 25%;
+        height: 30%;
         background-color: #2E2E2E;
         color: white;
     }

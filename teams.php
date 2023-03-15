@@ -3,7 +3,7 @@ session_start();
 
 include "database.php";
 
-$conn = mysqli_connect("localhost","root","","motogp");
+global $conn;
 
 $sql = "SELECT * FROM teams";
 

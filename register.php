@@ -2,7 +2,7 @@
  session_start();
 
     include "database.php";
-    $conn = mysqli_connect("localhost","root","","motogp");
+    global $conn;
 
 
     $errors = array();
@@ -63,7 +63,7 @@ mysqli_close($conn);
 <html>
 <head>
     <title>Register</title>
-    <link rel="stylesheet" type="text/css" href="login.css">
+    <link rel="stylesheet" type="text/css" href="register.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
       <!-- Font Awesome -->
   <link
@@ -80,6 +80,7 @@ mysqli_close($conn);
     href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css"
     rel="stylesheet"
   />
+  <script src="registerValidate.js"></script>
 </head>
 
 <body>

@@ -5,7 +5,7 @@ session_start();
 
 include "database.php";
 
-$conn = mysqli_connect("localhost","root","","motogp");
+global $conn;
 
 //get riders table
 $sql = "SELECT riders.rider_id,name ,team_name , profile_img FROM `riders` , rider_team , teams where rider_team.rider_id = riders.rider_id AND rider_team.team_id = teams.team_id;";
